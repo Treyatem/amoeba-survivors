@@ -1,19 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs6r12j6vml6b"]
+[gd_scene load_steps=5 format=3 uid="uid://b5qe3a8csc58s"]
 
 [ext_resource type="Script" path="res://code/ana_meeba.gd" id="1_7wmt5"]
 [ext_resource type="Texture2D" uid="uid://c73aqjpmktw7j" path="res://assets/Amoeba_32x32.png" id="2_oytky"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nojn"]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_8vak6"]
 
-[node name="Ana Meeba" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b8v3n"]
+radius = 44.0
+height = 132.0
+
+[node name="Ana Meeba" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_7wmt5")
 
 [node name="ACamera" type="Camera2D" parent="."]
-
-[node name="ACollision" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_0nojn")
 
 [node name="ASprite" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -22,3 +21,6 @@ sprite_frames = SubResource("SpriteFrames_8vak6")
 [node name="temp" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_oytky")
+
+[node name="ACollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_b8v3n")
