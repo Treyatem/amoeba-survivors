@@ -1,16 +1,18 @@
 [gd_scene load_steps=2 format=3 uid="uid://dkv37o3vv1jsr"]
 
-[ext_resource type="Script" path="res://code/hurt_box.gd" id="1_3rfjh"]
+[ext_resource type="Script" path="res://code/Area_Detecting.gd" id="1_eaw6v"]
 
-[node name="HurtBox" type="Area2D"]
+[node name="Area_Detecting" type="Area2D"]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("1_3rfjh")
+script = ExtResource("1_eaw6v")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 debug_color = Color(0.946025, 0.188105, 0.356576, 0.42)
 
 [node name="DisableTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
 

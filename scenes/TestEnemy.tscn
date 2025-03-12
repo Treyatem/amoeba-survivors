@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bk3ud4aj51nmk"]
+
+[ext_resource type="Script" path="res://code/TestEnemy.gd" id="1_2mddd"]
+[ext_resource type="Texture2D" uid="uid://dlndila4e466b" path="res://icon.svg" id="2_djwcp"]
+[ext_resource type="PackedScene" uid="uid://dkv37o3vv1jsr" path="res://scenes/Area_Detecting.tscn" id="3_d5s8y"]
+[ext_resource type="PackedScene" uid="uid://bqqxliucucw6n" path="res://scenes/Area_Affecting.tscn" id="4_70iq6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_io73s"]
+size = Vector2(62, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxq2l"]
+size = Vector2(62, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcqnj"]
+size = Vector2(46, 45)
+
+[node name="TestEnemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_2mddd")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_djwcp")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_io73s")
+disabled = true
+
+[node name="Area_Detecting" parent="." groups=["defend"] instance=ExtResource("3_d5s8y")]
+collision_mask = 16
+
+[node name="Collision" parent="Area_Detecting" index="0"]
+shape = SubResource("RectangleShape2D_rxq2l")
+
+[node name="Area_Affecting" parent="." instance=ExtResource("4_70iq6")]
+collision_layer = 4
+
+[node name="Collision" parent="Area_Affecting" index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qcqnj")
+
+[connection signal="hurt" from="Area_Detecting" to="." method="_on_hurt_box_hurt"]
+
+[editable path="Area_Detecting"]
+[editable path="Area_Affecting"]

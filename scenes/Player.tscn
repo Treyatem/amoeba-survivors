@@ -1,15 +1,14 @@
-[gd_scene load_steps=27 format=3 uid="uid://b5qe3a8csc58s"]
+[gd_scene load_steps=26 format=3 uid="uid://b5qe3a8csc58s"]
 
-[ext_resource type="Script" path="res://code/ana_meeba.gd" id="1_7wmt5"]
+[ext_resource type="Script" path="res://code/Player.gd" id="1_7wmt5"]
 [ext_resource type="Texture2D" uid="uid://b3vlx6ddlsk4l" path="res://assets/anna meeba/Dandelion/Dandelion.png" id="2_8gpo7"]
 [ext_resource type="Texture2D" uid="uid://b7scspylbe4fw" path="res://assets/anna meeba/Base/Amoeba_32x32.png" id="2_d6mvg"]
 [ext_resource type="Texture2D" uid="uid://3wc6meae7aox" path="res://assets/anna meeba/Base/Amoeba_32x32_L.png" id="3_mswve"]
-[ext_resource type="PackedScene" uid="uid://dkv37o3vv1jsr" path="res://scenes/hurtbox.tscn" id="3_neeg5"]
+[ext_resource type="PackedScene" uid="uid://dkv37o3vv1jsr" path="res://scenes/Area_Detecting.tscn" id="3_neeg5"]
 [ext_resource type="Texture2D" uid="uid://y2864x6dm7yy" path="res://assets/anna meeba/Base/Amoeba_32x32_R.png" id="4_36jjh"]
 [ext_resource type="Texture2D" uid="uid://dujw3w62lg8nb" path="res://assets/anna meeba/Base/Amoeba_32x32_B.png" id="5_muje0"]
-[ext_resource type="PackedScene" uid="uid://b187cwpspiq6f" path="res://scenes/dandelion_mode.tscn" id="8_sigr8"]
-[ext_resource type="Script" path="res://code/state_machine.gd" id="9_5o6cc"]
-[ext_resource type="Script" path="res://code/PowerBase.gd" id="10_biiyt"]
+[ext_resource type="Script" path="res://code/StateMachine.gd" id="9_5o6cc"]
+[ext_resource type="Script" path="res://code/State_Base.gd" id="10_biiyt"]
 [ext_resource type="Script" path="res://code/PowerDandelion.gd" id="11_bsptv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aolg4"]
@@ -52,7 +51,7 @@ region = Rect2(0, 0, 192, 192)
 atlas = ExtResource("3_mswve")
 region = Rect2(0, 0, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pb6mo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8donr"]
 atlas = ExtResource("4_36jjh")
 region = Rect2(0, 0, 192, 192)
 
@@ -109,7 +108,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pb6mo")
+"texture": SubResource("AtlasTexture_8donr")
 }],
 "loop": true,
 "name": &"right",
@@ -128,35 +127,33 @@ animations = [{
 radius = 38.0
 height = 96.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3fh1l"]
-radius = 33.0
-height = 66.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pmq6p"]
+radius = 34.0
+height = 76.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_7wmt5")
 
-[node name="ACamera" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite_Player" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_8vak6")
-animation = &"down"
+animation = &"left"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 19)
 shape = SubResource("CapsuleShape2D_b8v3n")
 disabled = true
 
-[node name="HurtBox" parent="." instance=ExtResource("3_neeg5")]
+[node name="Area_Detecting" parent="." groups=["player"] instance=ExtResource("3_neeg5")]
 collision_mask = 12
 
-[node name="Collision" parent="HurtBox" index="0"]
+[node name="Collision" parent="Area_Detecting" index="0"]
 position = Vector2(0, 19)
-shape = SubResource("CapsuleShape2D_3fh1l")
-
-[node name="DandelionMode" parent="." instance=ExtResource("8_sigr8")]
+shape = SubResource("CapsuleShape2D_pmq6p")
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("9_5o6cc")
@@ -169,10 +166,11 @@ player = NodePath("../..")
 [node name="Dandelion" type="Node" parent="State Machine" node_paths=PackedStringArray("player")]
 script = ExtResource("11_bsptv")
 player = NodePath("../..")
+move_speed = 450.0
 
-[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
-[connection signal="pickup" from="HurtBox" to="." method="_on_hurt_box_pickup"]
-[connection signal="pickup" from="HurtBox" to="State Machine/Base" method="_on_hurt_box_pickup"]
-[connection signal="pickup" from="HurtBox" to="State Machine/Dandelion" method="_on_hurt_box_pickup"]
+[connection signal="hurt" from="Area_Detecting" to="." method="_on_hurt_box_hurt"]
+[connection signal="pickup" from="Area_Detecting" to="." method="_on_hurt_box_pickup"]
+[connection signal="pickup" from="Area_Detecting" to="State Machine/Base" method="_on_hurt_box_pickup"]
+[connection signal="pickup" from="Area_Detecting" to="State Machine/Dandelion" method="_on_hurt_box_pickup"]
 
-[editable path="HurtBox"]
+[editable path="Area_Detecting"]

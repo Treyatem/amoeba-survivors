@@ -5,6 +5,7 @@ extends Area2D
 @onready var collision = $Collision
 @onready var disableTimer = $DisableTimer
 
+var type : String
 signal hurt(damage)
 signal pickup(type)
 
@@ -24,9 +25,6 @@ func _on_area_entered(area: Area2D):
 			emit_signal("hurt", damage)
 	if area.is_in_group("dandelion"):
 		var type = "dandelion"
-		emit_signal("pickup", type)
-	if area.is_in_group("base"):
-		var type = "base"
 		emit_signal("pickup", type)
 
 

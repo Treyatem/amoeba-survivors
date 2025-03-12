@@ -3,9 +3,9 @@ extends CharacterBody2D
 var move_speed = 300.0
 var hp = 80
 var pickup : String
-@onready var sprite = $Sprite
+@onready var sprite = $Sprite_Player
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta) -> void:
 	if pickup == "dandelion":
 		dandelion_animate()
 	else:

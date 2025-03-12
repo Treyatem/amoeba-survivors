@@ -13,10 +13,10 @@ func handle_movement():
 func enter():
 	handle_movement()
 
-func update(delta: float):
+func update(_delta: float):
 	handle_movement()
 
-func physics_update(delta: float):
+func physics_update(_delta: float):
 	if pickup == "dandelion":
 		Transitioned.emit(self, "Dandelion")
 	player.velocity = direction * move_speed
