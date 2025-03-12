@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwcxaavb400cw"]
+
+[ext_resource type="Texture2D" uid="uid://ch5eeas3i80wr" path="res://assets/anna meeba/Dandelion/Amoeba_Upgrade_Icon.png" id="1_gmclr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e4rs4"]
+radius = 33.0151
+
+[node name="BasePickup" type="Area2D" groups=["base"]]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, -11)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_gmclr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e4rs4")
+debug_color = Color(0.67881, 0.504467, 0, 0.42)

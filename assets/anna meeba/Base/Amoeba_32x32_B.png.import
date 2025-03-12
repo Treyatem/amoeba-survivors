@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c73aqjpmktw7j"
-path="res://.godot/imported/Amoeba_32x32.png-64d2d20e4ccd3d660670ce00fc5e8fe5.ctex"
+uid="uid://dujw3w62lg8nb"
+path="res://.godot/imported/Amoeba_32x32_B.png-11245a7c94d1d102a90b7dc7603b10d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Amoeba_32x32.png"
-dest_files=["res://.godot/imported/Amoeba_32x32.png-64d2d20e4ccd3d660670ce00fc5e8fe5.ctex"]
+source_file="res://assets/anna meeba/Base/Amoeba_32x32_B.png"
+dest_files=["res://.godot/imported/Amoeba_32x32_B.png-11245a7c94d1d102a90b7dc7603b10d1.ctex"]
 
 [params]
 

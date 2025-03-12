@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4rm1vulcmt5q"]
+
+[ext_resource type="Texture2D" uid="uid://jgltdmjoh03a" path="res://assets/anna meeba/Dandelion/Dandelion_Upgrade_Icon.png" id="1_3wb6w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e4rs4"]
+radius = 13.0384
+
+[node name="DandelionPickup" type="Area2D" groups=["dandelion"]]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, -1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_3wb6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e4rs4")
+debug_color = Color(0.67881, 0.504467, 0, 0.42)

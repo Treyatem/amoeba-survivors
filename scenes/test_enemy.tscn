@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk3ud4aj51nmk"]
+[gd_scene load_steps=8 format=3 uid="uid://bk3ud4aj51nmk"]
 
 [ext_resource type="Script" path="res://code/test_enemy.gd" id="1_lm4lv"]
 [ext_resource type="Texture2D" uid="uid://dlndila4e466b" path="res://icon.svg" id="2_wekno"]
+[ext_resource type="PackedScene" uid="uid://dkv37o3vv1jsr" path="res://scenes/hurtbox.tscn" id="3_v65yp"]
+[ext_resource type="PackedScene" uid="uid://bqqxliucucw6n" path="res://scenes/hitbox.tscn" id="4_oajc8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_io73s"]
 size = Vector2(62, 62)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxq2l"]
+size = Vector2(62, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcqnj"]
+size = Vector2(46, 45)
+
 [node name="test enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_lm4lv")
 
@@ -16,3 +26,25 @@ texture = ExtResource("2_wekno")
 
 [node name="ECollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_io73s")
+disabled = true
+
+[node name="HurtBox" parent="." groups=["defend"] instance=ExtResource("3_v65yp")]
+collision_mask = 16
+
+[node name="Collision" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_rxq2l")
+
+[node name="DisableTimer" parent="HurtBox" index="1"]
+wait_time = 0.2
+
+[node name="Hitbox" parent="." instance=ExtResource("4_oajc8")]
+collision_layer = 4
+
+[node name="Collision" parent="Hitbox" index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qcqnj")
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]
+[editable path="Hitbox"]
