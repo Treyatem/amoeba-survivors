@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://nj3gx53tak48"]
+
+[ext_resource type="PackedScene" uid="uid://bqqxliucucw6n" path="res://scenes/Area_Affecting.tscn" id="1_h45ud"]
+[ext_resource type="Script" path="res://code/Powerups/Mode_Wolverine.gd" id="1_uyatf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6c4v0"]
+size = Vector2(30.5061, 30.5061)
+
+[node name="Power_Wolverine" type="Node2D"]
+script = ExtResource("1_uyatf")
+
+[node name="Area_Affecting" parent="." instance=ExtResource("1_h45ud")]
+collision_layer = 16
+damage = 20
+
+[node name="Collision" parent="Area_Affecting" index="0"]
+position = Vector2(42, 4.76837e-07)
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_6c4v0")
+disabled = true
+
+[node name="Cooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+
+[editable path="Area_Affecting"]

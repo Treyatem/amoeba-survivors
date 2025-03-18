@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctj3lukimo3km"]
+[gd_scene load_steps=3 format=3 uid="uid://crqf1uorlvc4r"]
 
-[ext_resource type="Texture2D" uid="uid://ch5eeas3i80wr" path="res://assets/anna meeba/Base/Amoeba_Upgrade_Icon.png" id="1_0xrw6"]
+[ext_resource type="Texture2D" uid="uid://ch5eeas3i80wr" path="res://assets/anna meeba/Base/Amoeba_Upgrade_Icon.png" id="1_mr47y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_miacj"]
 size = Vector2(52, 48)
@@ -12,7 +12,7 @@ collision_mask = 0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(6, -4)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_0xrw6")
+texture = ExtResource("1_mr47y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_miacj")

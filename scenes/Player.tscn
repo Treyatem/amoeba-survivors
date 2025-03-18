@@ -1,15 +1,22 @@
-[gd_scene load_steps=26 format=3 uid="uid://b5qe3a8csc58s"]
+[gd_scene load_steps=44 format=3 uid="uid://b5qe3a8csc58s"]
 
-[ext_resource type="Script" path="res://code/Player.gd" id="1_7wmt5"]
+[ext_resource type="Script" path="res://code/Misc/Player.gd" id="1_7wmt5"]
 [ext_resource type="Texture2D" uid="uid://b3vlx6ddlsk4l" path="res://assets/anna meeba/Dandelion/Dandelion.png" id="2_8gpo7"]
-[ext_resource type="Texture2D" uid="uid://b7scspylbe4fw" path="res://assets/anna meeba/Base/Amoeba_32x32.png" id="2_d6mvg"]
-[ext_resource type="Texture2D" uid="uid://3wc6meae7aox" path="res://assets/anna meeba/Base/Amoeba_32x32_L.png" id="3_mswve"]
 [ext_resource type="PackedScene" uid="uid://dkv37o3vv1jsr" path="res://scenes/Area_Detecting.tscn" id="3_neeg5"]
-[ext_resource type="Texture2D" uid="uid://y2864x6dm7yy" path="res://assets/anna meeba/Base/Amoeba_32x32_R.png" id="4_36jjh"]
-[ext_resource type="Texture2D" uid="uid://dujw3w62lg8nb" path="res://assets/anna meeba/Base/Amoeba_32x32_B.png" id="5_muje0"]
+[ext_resource type="Texture2D" uid="uid://y53upuvxxvxc" path="res://assets/anna meeba/Base/Amoeba F.png" id="3_u3svp"]
+[ext_resource type="Texture2D" uid="uid://dmwnhthj0btj6" path="res://assets/anna meeba/Base/Amoeba L.png" id="4_h0o74"]
+[ext_resource type="Texture2D" uid="uid://cls2251howtom" path="res://assets/anna meeba/Base/Amoeba R.png" id="5_ffldk"]
+[ext_resource type="Texture2D" uid="uid://casyj4df45y1x" path="res://assets/anna meeba/Squid/Humboldt Squid.png" id="6_rrx5y"]
+[ext_resource type="Texture2D" uid="uid://cth3x37mau7h7" path="res://assets/anna meeba/Base/Amoeba B.png" id="7_5ph2r"]
 [ext_resource type="Script" path="res://code/StateMachine.gd" id="9_5o6cc"]
-[ext_resource type="Script" path="res://code/State_Base.gd" id="10_biiyt"]
-[ext_resource type="Script" path="res://code/PowerDandelion.gd" id="11_bsptv"]
+[ext_resource type="Script" path="res://code/Powerups/PowerBase.gd" id="10_biiyt"]
+[ext_resource type="Script" path="res://code/Powerups/PowerSquid.gd" id="11_4u6ap"]
+[ext_resource type="Script" path="res://code/Powerups/PowerBamboo.gd" id="11_6bwyo"]
+[ext_resource type="Script" path="res://code/Powerups/PowerDandelion.gd" id="11_bsptv"]
+[ext_resource type="Script" path="res://code/Powerups/PowerBird.gd" id="12_fluty"]
+[ext_resource type="Script" path="res://code/Powerups/PowerWolverine.gd" id="13_yumct"]
+[ext_resource type="Script" path="res://code/Powerups/PowerTardigrade.gd" id="16_pfe4a"]
+[ext_resource type="Script" path="res://code/Powerups/PowerFlytrap.gd" id="17_qn16k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aolg4"]
 atlas = ExtResource("2_8gpo7")
@@ -43,21 +50,65 @@ region = Rect2(192, 0, 32, 32)
 atlas = ExtResource("2_8gpo7")
 region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bodm6"]
-atlas = ExtResource("2_d6mvg")
-region = Rect2(0, 0, 192, 192)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofkmj"]
+atlas = ExtResource("3_u3svp")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lllwa"]
-atlas = ExtResource("3_mswve")
-region = Rect2(0, 0, 192, 192)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg50w"]
+atlas = ExtResource("4_h0o74")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8donr"]
-atlas = ExtResource("4_36jjh")
-region = Rect2(0, 0, 192, 192)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cghhs"]
+atlas = ExtResource("5_ffldk")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yof8v"]
-atlas = ExtResource("5_muje0")
-region = Rect2(0, 0, 192, 192)
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7ym6"]
+atlas = ExtResource("6_rrx5y")
+region = Rect2(0, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nasiy"]
+atlas = ExtResource("6_rrx5y")
+region = Rect2(70, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kohmb"]
+atlas = ExtResource("6_rrx5y")
+region = Rect2(140, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ewc7"]
+atlas = ExtResource("6_rrx5y")
+region = Rect2(210, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4xs4"]
+atlas = ExtResource("6_rrx5y")
+region = Rect2(280, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udpab"]
+atlas = ExtResource("6_rrx5y")
+region = Rect2(350, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3uld"]
+atlas = ExtResource("6_rrx5y")
+region = Rect2(420, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b54ko"]
+atlas = ExtResource("6_rrx5y")
+region = Rect2(490, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vprsx"]
+atlas = ExtResource("6_rrx5y")
+region = Rect2(560, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpved"]
+atlas = ExtResource("6_rrx5y")
+region = Rect2(630, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oe8k"]
+atlas = ExtResource("6_rrx5y")
+region = Rect2(700, 0, 70, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7upf8"]
+atlas = ExtResource("7_5ph2r")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8vak6"]
 animations = [{
@@ -92,7 +143,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bodm6")
+"texture": SubResource("AtlasTexture_ofkmj")
 }],
 "loop": true,
 "name": &"down",
@@ -100,7 +151,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lllwa")
+"texture": SubResource("AtlasTexture_tg50w")
 }],
 "loop": true,
 "name": &"left",
@@ -108,7 +159,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8donr")
+"texture": SubResource("AtlasTexture_cghhs")
 }],
 "loop": true,
 "name": &"right",
@@ -116,7 +167,45 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yof8v")
+"texture": SubResource("AtlasTexture_p7ym6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nasiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kohmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ewc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4xs4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udpab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3uld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b54ko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vprsx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpved")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oe8k")
+}],
+"loop": true,
+"name": &"squid",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7upf8")
 }],
 "loop": true,
 "name": &"up",
@@ -124,12 +213,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b8v3n"]
-radius = 38.0
-height = 96.0
+radius = 26.0
+height = 54.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pmq6p"]
-radius = 34.0
-height = 76.0
+radius = 27.0
+height = 56.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -137,22 +226,25 @@ collision_mask = 4
 script = ExtResource("1_7wmt5")
 
 [node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
 
-[node name="Sprite_Player" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3, 3)
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_8vak6")
-animation = &"left"
+animation = &"squid"
+frame = 8
+frame_progress = 0.983557
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 19)
+position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_b8v3n")
 disabled = true
 
 [node name="Area_Detecting" parent="." groups=["player"] instance=ExtResource("3_neeg5")]
+position = Vector2(0, 2)
 collision_mask = 12
 
 [node name="Collision" parent="Area_Detecting" index="0"]
-position = Vector2(0, 19)
 shape = SubResource("CapsuleShape2D_pmq6p")
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -163,14 +255,36 @@ initial_state = NodePath("Base")
 script = ExtResource("10_biiyt")
 player = NodePath("../..")
 
+[node name="Bamboo" type="Node" parent="State Machine"]
+script = ExtResource("11_6bwyo")
+
+[node name="Bird" type="Node" parent="State Machine"]
+script = ExtResource("12_fluty")
+
 [node name="Dandelion" type="Node" parent="State Machine" node_paths=PackedStringArray("player")]
 script = ExtResource("11_bsptv")
 player = NodePath("../..")
 move_speed = 450.0
 
-[connection signal="hurt" from="Area_Detecting" to="." method="_on_hurt_box_hurt"]
-[connection signal="pickup" from="Area_Detecting" to="." method="_on_hurt_box_pickup"]
+[node name="Squid" type="Node" parent="State Machine" node_paths=PackedStringArray("player")]
+script = ExtResource("11_4u6ap")
+player = NodePath("../..")
+
+[node name="Wolverine" type="Node" parent="State Machine" node_paths=PackedStringArray("player")]
+script = ExtResource("13_yumct")
+player = NodePath("../..")
+move_speed = 200.0
+
+[node name="Tardigrade" type="Node" parent="State Machine"]
+script = ExtResource("16_pfe4a")
+
+[node name="Flytrap" type="Node" parent="State Machine"]
+script = ExtResource("17_qn16k")
+
+[connection signal="hurt" from="Area_Detecting" to="." method="_on_detection_hurt"]
+[connection signal="pickup" from="Area_Detecting" to="." method="_on_detection_pickup"]
 [connection signal="pickup" from="Area_Detecting" to="State Machine/Base" method="_on_hurt_box_pickup"]
 [connection signal="pickup" from="Area_Detecting" to="State Machine/Dandelion" method="_on_hurt_box_pickup"]
+[connection signal="pickup" from="Area_Detecting" to="State Machine/Squid" method="_on_area_detecting_pickup"]
 
 [editable path="Area_Detecting"]

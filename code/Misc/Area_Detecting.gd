@@ -23,8 +23,14 @@ func _on_area_entered(area: Area2D):
 						area.temp_disable()
 			var damage = area.damage
 			emit_signal("hurt", damage)
+	if area.is_in_group("base"):
+		var type = "base"
+		emit_signal("pickup", type)
 	if area.is_in_group("dandelion"):
 		var type = "dandelion"
+		emit_signal("pickup", type)
+	if area.is_in_group("squid"):
+		var type = "squid"
 		emit_signal("pickup", type)
 
 

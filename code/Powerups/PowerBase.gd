@@ -17,8 +17,20 @@ func update(_delta: float):
 	handle_movement()
 
 func physics_update(_delta: float):
+	if pickup == "bird":
+		Transitioned.emit(self, "Base")
+	if pickup == "bamboo":
+		Transitioned.emit(self, "Bamboo")
 	if pickup == "dandelion":
 		Transitioned.emit(self, "Dandelion")
+	if pickup == "flytrap":
+		Transitioned.emit(self, "Flytrap")
+	if pickup == "squid":
+		Transitioned.emit(self, "Squid")
+	if pickup == "tardigrade":
+		Transitioned.emit(self, "Tardigrade")
+	if pickup == "wolverine":
+		Transitioned.emit(self, "Wolverine")
 	player.velocity = direction * move_speed
 
 

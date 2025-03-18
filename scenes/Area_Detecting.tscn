@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dkv37o3vv1jsr"]
 
-[ext_resource type="Script" path="res://code/Area_Detecting.gd" id="1_eaw6v"]
+[ext_resource type="Script" path="res://code/Misc/Area_Detecting.gd" id="1_eaw6v"]
 
 [node name="Area_Detecting" type="Area2D"]
 collision_layer = 0

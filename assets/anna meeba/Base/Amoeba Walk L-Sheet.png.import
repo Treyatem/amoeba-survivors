@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch5eeas3i80wr"
-path="res://.godot/imported/Amoeba_Upgrade_Icon.png-6a354ee9dcd00f7d08544a8453ab04fa.ctex"
+uid="uid://216ddgpcfb65"
+path="res://.godot/imported/Amoeba Walk L-Sheet.png-b294830849f67f93537256f7176dd0e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/anna meeba/Dandelion/Amoeba_Upgrade_Icon.png"
-dest_files=["res://.godot/imported/Amoeba_Upgrade_Icon.png-6a354ee9dcd00f7d08544a8453ab04fa.ctex"]
+source_file="res://assets/anna meeba/Base/Amoeba Walk L-Sheet.png"
+dest_files=["res://.godot/imported/Amoeba Walk L-Sheet.png-b294830849f67f93537256f7176dd0e5.ctex"]
 
 [params]
 

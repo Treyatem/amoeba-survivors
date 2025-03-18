@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bwx6ylvlckn2f"]
 
-[ext_resource type="Script" path="res://code/Projectile_Dandelion.gd" id="1_ct6ow"]
+[ext_resource type="Script" path="res://code/Powerups/Projectile_Dandelion.gd" id="1_ct6ow"]
 [ext_resource type="Texture2D" uid="uid://b0uhdpwixnqek" path="res://assets/anna meeba/Dandelion/Dandelion Floret.png" id="2_8sdcn"]
 [ext_resource type="PackedScene" uid="uid://bqqxliucucw6n" path="res://scenes/Area_Affecting.tscn" id="3_b4ia0"]
 
