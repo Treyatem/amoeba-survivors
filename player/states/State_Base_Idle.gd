@@ -2,10 +2,11 @@ class_name State_Base_Idle extends State
 
 @onready var base_walk : State = $"../BaseWalk"
 @onready var base_attack: State = $"../BaseAttack"
+@onready var dandelion: State_Dandelion = $"../Dandelion"
 
 ## What happens when the player enters this State?
 func enter() -> void:
-	player.update_animation("base_idle")
+	player.update_animation("base", "idle")
 	pass
 	
 ## What happens when the player exits this State?
@@ -26,6 +27,9 @@ func physics(_delta: float) -> State:
 ## What happens with input events in this State?
 func handle_input(_event: InputEvent) -> State:
 	if _event.is_action_pressed("left_click"):
-		return base_attack
+		if player.mouse_distance > 300:
+			return dandelion
+		else:
+			return base_attack
 	return null
 	

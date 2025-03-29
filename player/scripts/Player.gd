@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
+var mouse_distance : float
 
 var attack_type
 
@@ -19,6 +20,7 @@ func _ready() -> void:
 	state_machine.initialize(self)
 
 func _process(delta: float) -> void:
+	mouse_distance = self.global_position.distance_to(get_global_mouse_position())
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 func _physics_process(_delta) -> void:
@@ -91,8 +93,11 @@ func set_direction() -> bool:
 	cardinal_direction = new_direction
 	return true
 	
-func update_animation(state : String) -> void:
-	sprite.play(state + "_" + anim_direction())
+func update_animation(state : String, action : String) -> void:
+	if state == "squid" or state == "dandelion" or state == "flytrap":
+		sprite.play(state + "_" + action)
+	else:
+		sprite.play(state + "_" + action + "_" + anim_direction())
 	
 func anim_direction() -> String:
 	if cardinal_direction == Vector2.DOWN:
