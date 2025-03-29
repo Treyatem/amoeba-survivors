@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://crqf1uorlvc4r"]
+
+[ext_resource type="Texture2D" uid="uid://x7lbuirg3okn" path="res://player/sprites/Squid/Squid_Upgrade_Icon.png" id="1_dr2au"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_miacj"]
+size = Vector2(52, 48)
+
+[node name="Pickup_Squid" type="Area2D" groups=["base"]]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, -4)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_dr2au")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_miacj")
+debug_color = Color(0.67881, 0.504467, 0, 0.42)

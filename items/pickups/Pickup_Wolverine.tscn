@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://doqtjwjup175f"]
+
+[ext_resource type="Texture2D" uid="uid://bll4fh7euc5oa" path="res://player/sprites/Wolverine/Wolverine_Upgrade_Icon.png" id="1_sbb8w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_miacj"]
+size = Vector2(52, 48)
+
+[node name="BasePickup" type="Area2D" groups=["wolverine"]]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, -7)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_sbb8w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_miacj")
+debug_color = Color(0.67881, 0.504467, 0, 0.42)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://fd7taqungkq5"]
+
+[ext_resource type="Texture2D" uid="uid://bkrhbal0wgwce" path="res://items/testprop.svg" id="1_k55op"]
+[ext_resource type="Script" path="res://items/test_prop.gd" id="1_wldfd"]
+[ext_resource type="PackedScene" uid="uid://cpdjlnuo4jogu" path="res://general/hitbox/hit_box.tscn" id="3_crjys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpj0o"]
+size = Vector2(97, 64)
+
+[node name="TestProp" type="Node2D"]
+script = ExtResource("1_wldfd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_k55op")
+
+[node name="HitBox" parent="." instance=ExtResource("3_crjys")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0.5, 32)
+shape = SubResource("RectangleShape2D_rpj0o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 32)
+shape = SubResource("RectangleShape2D_rpj0o")

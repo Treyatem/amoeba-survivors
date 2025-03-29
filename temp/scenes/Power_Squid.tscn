@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfype54tumjij"]
+
+[ext_resource type="Script" path="res://temp/Powerups/Mode_Squid.gd" id="1_hli4e"]
+[ext_resource type="PackedScene" uid="uid://bqqxliucucw6n" path="res://temp/scenes/Area_Affecting.tscn" id="2_s3yb1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0syi3"]
+radius = 54.0833
+
+[node name="Power_Squid" type="Node2D"]
+script = ExtResource("1_hli4e")
+
+[node name="ChargeTime" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+
+[node name="CooldownTime" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
+
+[node name="Area_Affecting" parent="." instance=ExtResource("2_s3yb1")]
+unique_name_in_owner = true
+collision_layer = 16
+damage = 5
+
+[node name="Collision" parent="Area_Affecting" index="0"]
+shape = SubResource("CircleShape2D_0syi3")
+disabled = true
+debug_color = Color(0.789461, 0, 0.157402, 0.42)
+
+[connection signal="timeout" from="ChargeTime" to="." method="_on_charge_time_timeout"]
+[connection signal="timeout" from="CooldownTime" to="." method="_on_cooldown_time_timeout"]
+
+[editable path="Area_Affecting"]
